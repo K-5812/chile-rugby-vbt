@@ -1,0 +1,10 @@
+CHILE RUGBY VBT — PROTOTIPO DE APLICACIÓN WEB
+
+1. Abrir index.html con un editor de texto.
+2. Sustituir PEGAR_AQUI_PUBLISHABLE_KEY por la Publishable key de Supabase (NO service_role ni secret key).
+3. Publicar index.html en un hosting estático HTTPS (Netlify, Vercel, GitHub Pages, etc.). Abrir como archivo local puede producir errores de autenticación.
+4. En Supabase Authentication > URL Configuration agregar la dirección del sitio en Site URL y Redirect URLs.
+5. ANTES de invitar jugadores: revisar RLS en jugadores, entrenamientos, solicitudes_vinculacion y resumen_mensual_vbt. Probar con dos cuentas reales de prueba que no se puede consultar ni modificar datos ajenos. Revisar que el roster no exponga cargas históricas.
+6. En la versión actual, la vista de selección de jugador depende de que las políticas de jugadores permitan listar id/nombre de fichas no vinculadas. Si no lo permiten, hay que diseñar un RPC seguro que solo exponga id/nombre, sin abrir el acceso a toda la tabla.
+7. La aprobación usa el trigger ya instalado en Supabase; comprobar con pruebas que la cuenta queda vinculada y que la misma cuenta no puede vincular varias fichas. No se recomienda habilitar el sistema en producción sin ese control adicional.
+8. Este es un prototipo de prueba, no una aplicación publicada ni una auditoría de seguridad. No tiene gráficos ni exportación PDF todavía.
